@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\CODEOWNERS" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\codeql\codeql-config.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\dependabot.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\ISSUE_TEMPLATE\bug_report.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\ISSUE_TEMPLATE\config.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\ISSUE_TEMPLATE\feature_request.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\release-drafter.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\SUPPORT.md" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\browserstack.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\bundlewatch.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\calibreapp-image-actions.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\codeql.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\cspell.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\css.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\docs.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\issue-close-require.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\issue-labeled.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\js.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\lint.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\node-sass.yml" />
+    <None Include="wwwroot\assets\plugins\bootstrap-5.3.1\.github\workflows\release-notes.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

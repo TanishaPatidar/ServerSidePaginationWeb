@@ -1,0 +1,114 @@
+﻿
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">Product Details</h5>
+                <button type="button" class="btn btn-primary" title="Add" data-bs-toggle="modal" data-bs-target="#add_Product" id="btnOpen"><i class="ri-add-line"></i> Add</button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table id="table_Product" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/plugins/jquery-3.7.0/jquery.js"></script>
+<link href="~/assets/plugins/DataTables/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/assets/plugins/DataTables/jquery.dataTables.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $.noConflict(); 
+        GetProductList();
+    });
+
+    function GetProductList() {
+        $('#table_Product').DataTable({
+            processing: true,
+            serverSide: true,
+            paging: true,
+            filter: true,
+            scrollX: "auto",
+            ajax: {
+                type: 'GET',
+                url: "/Home/GetProductList",
+                dataType: 'json',
+                data: function (d) {
+                    // Pass DataTables parameters to the server
+                    d.draw = d.draw;
+               
+                    d.start = d.start;
+                    d.length = d.length;
+                    if (d.search && d.search.value) {
+                        d.searchValue = d.search.value;
+                    }
+                    d.sortColumn = ''; 
+                    d.sortDirection = ''; 
+
+                    if (d.order && d.order.length > 0) {
+                        var columnIndex = d.order[0].column // Get column index of the sorted column
+                        var column = d.columns[columnIndex]; // Get column object from columns array
+                        d.sortColumn = column.data; // Set sortColumn to the data field of the sorted column
+                        d.sortDirection = d.order[0].dir.toUpperCase();
+      
+                    }
+               
+                   
+                },
+                dataSrc: function (obj) {
+                  // alert( JSON.stringify(obj));
+                    var l = JSON.stringify(obj);
+                    datalist = JSON.parse(l).data; 
+
+                    // Return the modified data to be used in the table
+                    return datalist;
+                }
+            },
+            columns: [
+
+                {
+                    title: "MastCode",
+                    data: "mastCode",
+                    width: "15%",
+                    visible:false
+
+                },
+                {
+                    title: "Product Name",
+                    data: "productName",
+                    width: "15%",
+                    orderable: true
+                  
+                },
+                {
+                    title: "Product Details",
+                    data: "productDetails",
+                    width: "15%",
+                    orderable: true
+                }
+            ],
+          
+
+            
+
+            initComplete: function (settings, json) {
+                var columnOrder = [];
+                // Get order sequence for each column
+                settings.aoColumns.forEach(function (column) {
+                    columnOrder.push(column.asSorting); // Access the order sequence for each column
+                })
+            }
+        });
+    }
+</script>
+
+
+
+
